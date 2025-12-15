@@ -128,6 +128,7 @@ function App() {
   return (
     <div className="site">
       <header className="nav-shell">
+        <div className="nav-background" aria-hidden="true" />
         <div className="nav-inner">
           <button
             type="button"
