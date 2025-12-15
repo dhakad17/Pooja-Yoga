@@ -134,9 +134,7 @@ function App() {
             className="nav-brand"
             onClick={() => scrollToSection('home')}
           >
-            <span className="nav-mark" aria-hidden="true">
-              ॐ
-            </span>
+            <img src="/om.svg" alt="Yogic Pooja Logo" className="nav-logo" />
             <span className="nav-text">
               <span className="nav-title">Pooja</span>
               <span className="nav-subtitle">Yogic Pooja · Yoga Instructor</span>
