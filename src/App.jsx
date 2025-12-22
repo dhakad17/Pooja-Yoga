@@ -10,26 +10,42 @@ function App() {
   const [musicError, setMusicError] = useState(false)
   const audioRef = useRef(null)
 
+  // Form state for WhatsApp integration
+  const [formData, setFormData] = useState({
+    name: '',
+    gender: '',
+    age: '',
+    interest: '',
+    message: ''
+  })
+
   const testimonials = [
     {
-      name: 'Ananya',
-      role: 'Wellness Coach',
+      name: 'Jagrati Patel',
+      role: 'Software Engineer | Bangalore',
       quote:
-        'Practicing with you feels like a deep exhale for my whole life. Your classes are the calm in my week.',
+        'As an IT professional, I spend most of my day at a desk. Since joining these sessions, I feel so much better—mentally more relaxed and centered. The practice has become my reset button after long work hours.',
       rating: 5,
     },
     {
-      name: 'Leah',
-      role: 'Designer',
+      name: 'Archana Pandey',
+      role: 'Teacher | Bhopal',
       quote:
-        'The blend of strength, softness, and intention in every sequence has changed how I move through my days.',
+        'The sessions have been transformative for me. I feel mentally relaxed, and my sleep quality has improved significantly. I wake up feeling refreshed and ready for the day.',
       rating: 5,
     },
     {
-      name: 'Sara',
-      role: 'Entrepreneur',
+      name: 'Swati Kirar',
+      role: 'Income Tax Officer | Ahmedabad',
       quote:
-        'Online sessions feel so personal and grounded. I finish each class feeling more present, clear, and at home in my body.',
+        'After joining these sessions, my body feels so relaxed and rejuvenated. The gentle movements and breathwork help me release all the tension I carry from my demanding job.',
+      rating: 5,
+    },
+    {
+      name: 'Rohit Sharma',
+      role: 'Software Engineer | Hyderabad',
+      quote:
+        'I joined because of persistent body pain and stretching issues. The sessions have made me so much more flexible, and my pain has reduced dramatically. Truly life-changing!',
       rating: 5,
     },
   ]
@@ -63,6 +79,43 @@ function App() {
     setActiveSection(id)
     setIsMenuOpen(false)
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  // Handle WhatsApp submission
+  const handleWhatsAppSubmit = (e) => {
+    e.preventDefault()
+
+    // Get WhatsApp number from environment variable
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '916265904570'
+
+    // Format the message with form data (using plain text, no emojis for better compatibility)
+    let message = `Hi Pooja!\n\n`
+    message += `*Name:* ${formData.name || 'Not provided'}\n`
+    message += `*Gender:* ${formData.gender || 'Not specified'}\n`
+    message += `*Age:* ${formData.age || 'Not provided'}\n`
+    message += `*Interest:* ${formData.interest || 'Not specified'}\n\n`
+    if (formData.message) {
+      message += `*Message:*\n${formData.message}\n\n`
+    }
+    message += `Looking forward to connecting with you!`
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(message)
+
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank')
+  }
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { id, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }))
   }
 
   useEffect(() => {
@@ -198,8 +251,8 @@ function App() {
               योगश्चित्तवृत्तिनिरोधः — <span>Yoga is the stilling of the changing states of the mind.</span>
             </p>
             <p className="hero-lead">
-              I help women slow down, strengthen gently, and return to themselves through
-              mindful movement, breath, and rest—online and in person. धीरे-धीरे, प्यार
+              I help people slow down, strengthen gently, and return to themselves through
+              mindful movement, breath, and rest—online. धीरे-धीरे, प्यार
               से, शरीर और मन को वापस अपने केंद्र पर लाने की साधना।
             </p>
 
@@ -266,7 +319,7 @@ function App() {
               </div>
               <div>
                 <span className="trust-label">Format</span>
-                <span className="trust-value">Studio &amp; online classes</span>
+                <span className="trust-value">Online classes only</span>
               </div>
             </div>
           </div>
@@ -326,7 +379,7 @@ function App() {
               <h2>Yoga as a gentle return to yourself · स्वयं तक वापसी की साधना।</h2>
               <p>
                 I&apos;m Pooja, known as Yogic Pooja, a yoga instructor and space-holder for
-                women seeking a kinder relationship with their bodies. My classes weave
+                anyone seeking a kinder relationship with their body. My classes weave
                 together slow, intuitive movement, grounding breathwork, and spacious rest
                 so you can soften, strengthen, and remember your own rhythm.
               </p>
@@ -356,11 +409,11 @@ function App() {
 
         <section id="offerings" className="section offerings-section">
           <div className="section-header reveal">
-            <p className="eyebrow">In-studio & private offerings</p>
+            <p className="eyebrow">Online group offerings</p>
             <h2>Ways to practice together.</h2>
             <p>
-              Curated sessions that honor your energy, cycle, and season of life—always
-              with room to modify and move at your own pace.
+              Live online sessions that honor your energy and pace—always
+              with room to modify and move at your comfort level.
             </p>
           </div>
 
@@ -390,20 +443,6 @@ function App() {
                 <li>Restorative postures</li>
                 <li>Supported yin shapes</li>
                 <li>Yoga nidra inspired rest</li>
-              </ul>
-            </article>
-
-            <article className="card offering-card">
-              <div className="card-icon">🤍</div>
-              <h3>1:1 Private Sessions</h3>
-              <p>
-                Bespoke sessions tailored to your body, history, and intentions—online or
-                in person.
-              </p>
-              <ul>
-                <li>Personalized sequencing</li>
-                <li>Posture &amp; breath coaching</li>
-                <li>Integration notes after class</li>
               </ul>
             </article>
           </div>
@@ -540,29 +579,69 @@ function App() {
 
             <form
               className="contact-form"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleWhatsAppSubmit}
             >
               <div className="form-row">
                 <div className="field">
                   <label htmlFor="name">Name</label>
-                  <input id="name" type="text" placeholder="Your full name" />
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Your full name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
                 <div className="field">
-                  <label htmlFor="email">Email</label>
-                  <input id="email" type="email" placeholder="you@example.com" />
+                  <label htmlFor="gender">Gender</label>
+                  <select
+                    id="gender"
+                    value={formData.gender}
+                    onChange={handleInputChange}
+                    required
+                  >
+                    <option value="" disabled>
+                      Select gender
+                    </option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
                 </div>
               </div>
-              <div className="field">
-                <label htmlFor="interest">What are you interested in?</label>
-                <select id="interest" defaultValue="">
-                  <option value="" disabled>
-                    Choose an option
-                  </option>
-                  <option value="private">Private 1:1 sessions</option>
-                  <option value="series">Soft Strength series</option>
-                  <option value="membership">Evening Unwind membership</option>
-                  <option value="other">Something else</option>
-                </select>
+              <div className="form-row">
+                <div className="field">
+                  <label htmlFor="age">Age</label>
+                  <input
+                    id="age"
+                    type="number"
+                    placeholder="Your age"
+                    min="1"
+                    max="120"
+                    value={formData.age}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="field">
+                  <label htmlFor="interest">What are you interested in?</label>
+                  <select
+                    id="interest"
+                    value={formData.interest}
+                    onChange={handleInputChange}
+                    required
+                  >
+                    <option value="" disabled>
+                      Choose an option
+                    </option>
+                    <option value="Private 1:1 sessions">Private 1:1 sessions</option>
+                    <option value="Soft Strength series">Soft Strength series</option>
+                    <option value="Evening Unwind membership">Evening Unwind membership</option>
+                    <option value="Something else">Something else</option>
+                  </select>
+                </div>
               </div>
               <div className="field">
                 <label htmlFor="message">Anything you&apos;d like to share?</label>
@@ -570,19 +649,21 @@ function App() {
                   id="message"
                   rows="4"
                   placeholder="Energy levels, experience, intentions, or questions..."
+                  value={formData.message}
+                  onChange={handleInputChange}
                 />
               </div>
               <button type="submit" className="btn primary full">
-                Send inquiry (demo only)
+                Send inquiry via WhatsApp 💬
               </button>
-              <p className="form-note">This form is for demo purposes only.</p>
+              <p className="form-note">Click to open WhatsApp and send your message to Pooja</p>
             </form>
           </div>
         </section>
       </main>
 
       <footer className="site-footer">
-        <p>© {new Date().getFullYear()} Saanvi Rao · Yoga Instructor Portfolio</p>
+        <p>© {new Date().getFullYear()} Pooja Dhakad · Yoga Instructor Portfolio</p>
       </footer>
     </div>
   )
