@@ -35,14 +35,14 @@ function App() {
       rating: 5,
     },
     {
-      name: 'Swati Kirar',
-      role: 'Income Tax Officer | Ahmedabad',
+      name: 'Pranjali Nagar',
+      role: 'Bank Officer | Bhopal',
       quote:
         'After joining these sessions, my body feels so relaxed and rejuvenated. The gentle movements and breathwork help me release all the tension I carry from my demanding job.',
       rating: 5,
     },
     {
-      name: 'Rohit Sharma',
+      name: 'Rohit',
       role: 'Software Engineer | Hyderabad',
       quote:
         'I joined because of persistent body pain and stretching issues. The sessions have made me so much more flexible, and my pain has reduced dramatically. Truly life-changing!',
@@ -53,7 +53,7 @@ function App() {
   const asanaSlides = [
     {
       src: '/instructors/asana-restorative-backbend.jpg',
-      name: 'Supta Vajrasana variation',
+      name: 'Matsyasana',
       line: 'A deep, heart-opening backbend that invites trust, expansion, and softness through the front body.',
     },
     {
@@ -89,18 +89,30 @@ function App() {
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '916265904570'
 
     // Format the message with form data (using plain text, no emojis for better compatibility)
-    let message = `Hi Pooja!\n\n`
-    message += `*Name:* ${formData.name || 'Not provided'}\n`
-    message += `*Gender:* ${formData.gender || 'Not specified'}\n`
-    message += `*Age:* ${formData.age || 'Not provided'}\n`
-    message += `*Interest:* ${formData.interest || 'Not specified'}\n\n`
-    if (formData.message) {
-      message += `*Message:*\n${formData.message}\n\n`
-    }
-    message += `Looking forward to connecting with you!`
+    let message = `\uD83C\uDF38 Namaste Pooja \uD83D\uDE4F\n\n`;
 
+    message += `I would like to begin my yoga journey with you.\n\n`;
+
+    message += `\uD83E\uDDD8 *Details*\n`;
+    message += `• Name: ${formData.name || 'Not provided'}\n`;
+    message += `• Gender: ${formData.gender || 'Not specified'}\n`;
+    message += `• Age: ${formData.age || 'Not provided'}\n`;
+    message += `• Interest: ${formData.interest || 'Not specified'}\n\n`;
+
+    if (formData.message) {
+      message += `\uD83D\uDCAC *Message*\n${formData.message}\n\n`;
+    }
+
+    message += `\u2728 Looking forward to connecting and practicing together.\n`;
+    message += `Thank you \uD83C\uDF3F`;
+
+
+    message += `✨ Looking forward to connecting and practicing together.\n`;
+    message += `Thank you 🌸`;
     // Encode the message for URL
-    const encodedMessage = encodeURIComponent(message)
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+
 
     // Create WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
@@ -243,9 +255,8 @@ function App() {
           <div className="hero-inner reveal">
             <p className="eyebrow">Premium yoga · Yogic Pooja योगिक पूजा</p>
             <h1>
-              Stillness in your
-              <span className="hero-accent"> body</span>, clarity in your
-              <span className="hero-accent"> mind</span>, शांति मन में।
+              <span className="hero-accent hero-yoga">योग</span>
+              <span className="hero-subtitle">स्वयं की, स्वयं के माध्यम से,<br />स्वयं तक पहुँचने की यात्रा है</span>
             </h1>
             <p className="hero-shloka">
               योगश्चित्तवृत्तिनिरोधः — <span>Yoga is the stilling of the changing states of the mind.</span>
@@ -330,13 +341,12 @@ function App() {
             <div>
               <p className="shloka-sanskrit">शरीरमाद्यं खलु धर्मसाधनम्</p>
               <p className="shloka-meaning">
-                The body is truly the primary instrument for all that we wish to create and live.
+                यदि हमारा शरीर स्वस्थ है, तभी हम अपने कर्तव्यों का पालन कर सकते हैं। इसलिए हमें अपने शरीर की रक्षा हर तरह से करनी चाहिए, क्योंकि शरीर ही धर्म पालन का पहला साधन है।
               </p>
             </div>
             <div>
-              <p className="shloka-sanskrit">सुखस्थिरम् आसनम्</p>
-              <p className="shloka-meaning">
-                A steady, easeful seat — the heart of every posture and every practice.
+              <p className="shloka-sanskrit">स्थिरसुखम् आसनम् </p>
+              <p className="shloka-meaning">A special posture of the body in which it can remain still and comfortably seated for a long time is called Asana.
               </p>
             </div>
           </div>
@@ -394,7 +404,7 @@ function App() {
                 <div>
                   <span className="trust-label">Specialities</span>
                   <p>
-                    Gentle vinyasa, hormone-friendly flows, and deep restorative rest.
+                    Gentle, hormone-friendly flows, and deep restorative rest.
                     नरम, संतुलित अभ्यास जो शरीर को थकाए नहीं, सहारा दे।
                   </p>
                 </div>
@@ -409,40 +419,42 @@ function App() {
 
         <section id="offerings" className="section offerings-section">
           <div className="section-header reveal">
-            <p className="eyebrow">Online group offerings</p>
-            <h2>Ways to practice together.</h2>
+            <p className="eyebrow">Online Yoga Sessions</p>
+            <h2>Transform Your Life with Yoga 🌸</h2>
             <p>
-              Live online sessions that honor your energy and pace—always
-              with room to modify and move at your comfort level.
+              Live online sessions conducted on Google Meet. Open to all—beginner & intermediate friendly.
+              Classes in Hindi & English. Join only if you're ready to give your best to the practice! 🌸
             </p>
           </div>
 
           <div className="cards-grid reveal">
             <article className="card offering-card">
-              <div className="card-icon">🌿</div>
-              <h3>Gentle Morning Flow</h3>
+              <div className="card-icon">�</div>
+              <h3>Morning Batch</h3>
               <p>
-                Slow, spacious sequences to wake the body kindly and clear your mind for
-                the day ahead.
+                Start your day with holistic yoga practices including hatha, ashtanga, kriya,
+                asana, pranayama, mudra, and meditation.
               </p>
               <ul>
-                <li>Soft strength &amp; mobility</li>
-                <li>Guided breathwork</li>
-                <li>Closing relaxation</li>
+                <li>🕔 Timing: 6:00–7:00 AM</li>
+                <li>📅 Monday–Friday</li>
+                <li>🗓️ 21 classes/month</li>
+                <li>🌸 Open to all levels</li>
               </ul>
             </article>
 
             <article className="card offering-card">
               <div className="card-icon">🌙</div>
-              <h3>Evening Restore</h3>
+              <h3>Evening 1:1 Session</h3>
               <p>
-                Nervous system-friendly sessions designed to unravel tension and invite
-                deep rest.
+                Personalized one-on-one sessions tailored to your needs.
+                All lifestyle disorders & diseases are taken care of. It's a healing path you choose.
               </p>
               <ul>
-                <li>Restorative postures</li>
-                <li>Supported yin shapes</li>
-                <li>Yoga nidra inspired rest</li>
+                <li>🕕 Timing: 6:00–7:00 PM</li>
+                <li>👤 Private 1:1 attention</li>
+                <li>💚 Healing focused</li>
+                <li>🎯 Personalized practice</li>
               </ul>
             </article>
           </div>
@@ -450,62 +462,82 @@ function App() {
 
         <section id="programs" className="section programs-section">
           <div className="section-header reveal">
-            <p className="eyebrow">Online classes & programs</p>
-            <h2>Practice from anywhere, on your own terms.</h2>
+            <p className="eyebrow">Special Pricing Available</p>
+            <h2>Join Our Community & Start Your Journey 🌸</h2>
             <p>
-              Intimate online containers designed to help you build a sustainable,
-              nourishing practice—without hustle or pressure.
+              Join our beautiful community to help you stay rooted in your purpose.
+              Practice from the comfort of your home with live sessions on Google Meet.
             </p>
           </div>
 
           <div className="cards-grid reveal">
             <article className="card program-card">
               <header>
-                <h3>Soft Strength Series</h3>
-                <p className="program-tag">4-week live program</p>
+                <h3>🌅 Morning Batch</h3>
+                <p className="program-tag">Mon–Friday · 21 classes/month</p>
               </header>
               <p>
-                A grounded, progressive journey to rebuild strength and stability with
-                compassion and care.
+                Begin your mornings with transformative yoga practice. Perfect for those seeking
+                a fresh start to their day with holistic wellness practices.
               </p>
               <ul>
-                <li>2 live classes per week</li>
-                <li>Recordings available for 7 days</li>
-                <li>Gentle core &amp; joint support focus</li>
+                <li>⏰ 6:00–7:00 AM daily</li>
+                <li>📅 Monday to Friday</li>
+                <li>🧘 Group sessions on Google Meet</li>
+                <li>🌿 Holistic yoga, pranayama, meditation</li>
+                <li>💪 Build strength, flexibility & peace</li>
               </ul>
-              <p className="program-price">₹4,500 · 4 weeks</p>
+              <p className="program-price" style={{ textDecoration: 'line-through', opacity: 0.6, marginBottom: '0.3rem' }}>₹1,500/month</p>
+              <p className="program-price" style={{ color: 'var(--color-terracotta)', fontSize: '1.3rem', marginBottom: '0.8rem' }}>₹999/month <span style={{ fontSize: '0.85rem', color: 'var(--color-ink-soft)' }}>Limited Time</span></p>
               <button
                 type="button"
                 className="btn primary full"
                 onClick={() => scrollToSection('contact')}
               >
-                Enroll now
+                Register for Morning Batch
               </button>
             </article>
 
             <article className="card program-card">
               <header>
-                <h3>Evening Unwind Membership</h3>
-                <p className="program-tag program-tag-soft">Monthly online studio</p>
+                <h3>🌙 Evening 1:1 Session</h3>
+                <p className="program-tag program-tag-soft">Private Personalized Sessions</p>
               </header>
               <p>
-                A calm, cozy online space to end your day with restorative, yin, and
-                meditative practices.
+                One-on-one personalized attention for your specific needs. A healing journey
+                designed just for you with focused guidance and support.
               </p>
               <ul>
-                <li>3 live sessions per month</li>
-                <li>Library of guided practices</li>
-                <li>Private members-only community</li>
+                <li>⏰ 6:00–7:00 PM (flexible timing)</li>
+                <li>👤 Private 1:1 sessions</li>
+                <li>💚 All lifestyle disorders addressed</li>
+                <li>🎯 Customized healing path</li>
+                <li>🌸 Personalized lifestyle guidance</li>
               </ul>
-              <p className="program-price">₹2,200 / month</p>
+              <p className="program-price" style={{ textDecoration: 'line-through', opacity: 0.6, marginBottom: '0.3rem' }}>₹5,000/month</p>
+              <p className="program-price" style={{ color: 'var(--color-terracotta)', fontSize: '1.3rem', marginBottom: '0.8rem' }}>₹4,000/month <span style={{ fontSize: '0.85rem', color: 'var(--color-ink-soft)' }}>Limited Time</span></p>
               <button
                 type="button"
                 className="btn primary full"
                 onClick={() => scrollToSection('contact')}
               >
-                Join the waitlist · वेटलिस्ट में जुड़ें
+                Register for 1:1 Session
               </button>
             </article>
+          </div>
+
+          <div className="section-inner reveal" style={{ marginTop: '3rem', padding: '2rem', background: 'var(--color-sage-soft)', borderRadius: 'var(--radius-lg)', textAlign: 'center' }}>
+            <h3 style={{ marginBottom: '1rem', color: 'var(--color-terracotta)' }}>📌 Important Details</h3>
+            <ul style={{ listStyle: 'none', padding: 0, maxWidth: '700px', margin: '0 auto', textAlign: 'left', lineHeight: '1.8' }}>
+              <li style={{ marginBottom: '0.5rem' }}>✅ <strong>Platform:</strong> Google Meet</li>
+              <li style={{ marginBottom: '0.5rem' }}>✅ <strong>Languages:</strong> Hindi & English</li>
+              <li style={{ marginBottom: '0.5rem' }}>✅ <strong>Commitment required:</strong> Join with dedication to give your best</li>
+              <li style={{ marginBottom: '0.5rem' }}>✅ <strong>Policy:</strong> No refund or plan postpone available</li>
+              <li style={{ marginBottom: '0.5rem' }}>✅ <strong>Limited time pricing</strong> - Book now to secure special rates</li>
+            </ul>
+            <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', fontWeight: '500' }}>
+              👉 Register below and we'll send you the payment details! 🙏
+            </p>
           </div>
         </section>
 
@@ -565,13 +597,13 @@ function App() {
               </p>
               <div className="contact-social">
                 <span>Connect</span>
-                <a href="#" aria-label="Instagram">
+                <a href="https://www.instagram.com/yogic_pooja_30?igsh=MXQ4eDdxNnJrcnpmZg==" aria-label="Instagram">
                   Instagram
                 </a>
-                <a href="#" aria-label="YouTube">
+                <a href="https://www.youtube.com/@poojadhakad30" aria-label="YouTube">
                   YouTube
                 </a>
-                <a href="#" aria-label="Email">
+                <a href="yogicpooja30@gmail.com" aria-label="Email">
                   Email
                 </a>
               </div>
@@ -636,9 +668,9 @@ function App() {
                     <option value="" disabled>
                       Choose an option
                     </option>
-                    <option value="Private 1:1 sessions">Private 1:1 sessions</option>
-                    <option value="Soft Strength series">Soft Strength series</option>
-                    <option value="Evening Unwind membership">Evening Unwind membership</option>
+                    <option value="Morning Batch - ₹999/month (Limited Offer)">Morning Batch - ₹999/month (Limited Offer)</option>
+                    <option value="Evening 1:1 Session - ₹4000/month (Limited Offer)">Evening 1:1 Session - ₹4000/month (Limited Offer)</option>
+                    <option value="Both Morning & Evening">Both Morning & Evening</option>
                     <option value="Something else">Something else</option>
                   </select>
                 </div>
