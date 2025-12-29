@@ -89,26 +89,24 @@ function App() {
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '916265904570'
 
     // Format the message with form data (using plain text, no emojis for better compatibility)
-    let message = `\uD83C\uDF38 Namaste Pooja \uD83D\uDE4F\n\n`;
+    let message = 'Namaste Pooja\n';
 
     message += `I would like to begin my yoga journey with you.\n\n`;
 
-    message += `\uD83E\uDDD8 *Details*\n`;
+    message += `*Details*\n`;
     message += `• Name: ${formData.name || 'Not provided'}\n`;
     message += `• Gender: ${formData.gender || 'Not specified'}\n`;
     message += `• Age: ${formData.age || 'Not provided'}\n`;
     message += `• Interest: ${formData.interest || 'Not specified'}\n\n`;
 
     if (formData.message) {
-      message += `\uD83D\uDCAC *Message*\n${formData.message}\n\n`;
+      message += ` *Message*\n${formData.message}\n\n`;
     }
 
-    message += `\u2728 Looking forward to connecting and practicing together.\n`;
-    message += `Thank you \uD83C\uDF3F`;
 
+    message += ` Looking forward to connecting and practicing together.\n`;
+    message += `Thank you `;
 
-    message += `✨ Looking forward to connecting and practicing together.\n`;
-    message += `Thank you 🌸`;
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
