@@ -190,9 +190,7 @@ function App() {
     return () => window.clearInterval(id)
   }, [asanaSlides.length])
   const heroVideos = [
-    "/media/yoga-hero-1.mp4",
-    "/media/yoga-hero-2.mp4",
-    "/media/yoga-hero-3.mp4",
+    "/media/yoga-hero-1.mp4"
   ];
 
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -331,50 +329,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        <section id="offerings" className="section offerings-section">
-          <div className="section-header reveal">
-            <p className="eyebrow">Online Yoga Sessions</p>
-            <h2>Transform Your Life with Yoga 🌸</h2>
-            <p>
-              Live online sessions conducted on Google Meet. Open to all—beginner & intermediate friendly.
-              Classes in Hindi & English. Join only if you're ready to give your best to the practice! 🌸
-            </p>
-          </div>
-
-          <div className="cards-grid reveal">
-            <article className="card offering-card">
-              <div className="card-icon">🌅</div>
-              <h3>Morning Batch</h3>
-              <p>
-                Start your day with holistic yoga practices including hatha, ashtanga, kriya,
-                asana, pranayama, mudra, and meditation.
-              </p>
-              <ul>
-                <li>🕔 Timing: 6:00–7:00 AM</li>
-                <li>📅 Monday–Friday</li>
-                <li>🗓️ 21 classes/month</li>
-                <li>🌸 Open to all levels</li>
-              </ul>
-            </article>
-
-            <article className="card offering-card">
-              <div className="card-icon">🌙</div>
-              <h3>Evening 1:1 Session</h3>
-              <p>
-                Personalized one-on-one sessions tailored to your needs.
-                All lifestyle disorders & diseases are taken care of. It's a healing path you choose.
-              </p>
-              <ul>
-                <li>🕕 Timing: 6:00–7:00 PM</li>
-                <li>👤 Private 1:1 attention</li>
-                <li>💚 Healing focused</li>
-                <li>🎯 Personalized practice</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
         <section id="programs" className="section programs-section">
           <div className="section-header reveal">
             <p className="eyebrow">Special Pricing Available</p>
