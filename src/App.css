@@ -3,6 +3,11 @@
   color: var(--color-ink);
 }
 
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
 .nav-shell {
   position: sticky;
   top: 0;
