@@ -58,7 +58,7 @@ function App() {
     },
     {
       src: '/instructors/asana-meditation-cliff.jpg',
-      name: 'Dhyana (seated meditation)',
+      name: 'Dhyana (meditation)',
       line: 'Steady, grounded awareness—breath and landscape meeting in a single, quiet moment.',
     },
     {
@@ -350,7 +350,7 @@ function App() {
                 a fresh start to their day with holistic wellness practices.
               </p>
               <ul>
-                <li>⏰ 6:00–7:00 AM daily</li>
+                <li>⏰ 7:00–8:00 AM daily</li>
                 <li>📅 Monday to Friday</li>
                 <li>🧘 Group sessions on Google Meet</li>
                 <li>🌿 Holistic yoga, pranayama, meditation</li>
