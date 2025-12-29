@@ -36,7 +36,7 @@ function App() {
     },
     {
       name: 'Pranjali Nagar',
-      role: 'Bank Officer | Bhopal',
+      role: 'Bank CSA | Bhopal',
       quote:
         'After joining these sessions, my body feels so relaxed and rejuvenated. The gentle movements and breathwork help me release all the tension I carry from my demanding job.',
       rating: 5,
@@ -189,6 +189,21 @@ function App() {
     )
     return () => window.clearInterval(id)
   }, [asanaSlides.length])
+  const heroVideos = [
+    "/media/yoga-hero-1.mp4",
+    "/media/yoga-hero-2.mp4",
+    "/media/yoga-hero-3.mp4",
+  ];
+
+  const [currentVideo, setCurrentVideo] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
+    }, 6000); // 6 seconds per video
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="site">
@@ -240,10 +255,12 @@ function App() {
 
       <main>
         <section id="home" className="hero">
+          {/* Hero Video */}
           <div className="hero-media" aria-hidden="true">
             <video
+              key={currentVideo}
               className="hero-video"
-              src="/media/yoga-hero.mp4"
+              src={heroVideos[currentVideo]}
               autoPlay
               muted
               loop
@@ -252,102 +269,20 @@ function App() {
             <div className="hero-overlay" />
           </div>
 
+          {/* Hero Content */}
           <div className="hero-inner reveal">
-            <p className="eyebrow">Premium yoga · Yogic Pooja योगिक पूजा</p>
-            <h1>
-              <span className="hero-accent hero-yoga">योग</span>
-              <span className="hero-subtitle">स्वयं की, स्वयं के माध्यम से,<br />स्वयं तक पहुँचने की यात्रा है</span>
+            <h1 className="hero-title">
+              योग<br /> को अपने दैनिक जीवन का हिस्सा बनाए और स्वस्थ जीवन जिएँ।
             </h1>
-            <p className="hero-shloka">
-              योगश्चित्तवृत्तिनिरोधः — <span>Yoga is the stilling of the changing states of the mind.</span>
-            </p>
-            <p className="hero-lead">
-              I help people slow down, strengthen gently, and return to themselves through
-              mindful movement, breath, and rest—online. धीरे-धीरे, प्यार
-              से, शरीर और मन को वापस अपने केंद्र पर लाने की साधना।
-            </p>
 
             <div className="hero-actions">
               <button
                 type="button"
                 className="btn primary"
-                onClick={() => scrollToSection('programs')}
+                onClick={() => scrollToSection("programs")}
               >
-                Book a class
+                Book a Class
               </button>
-              <button
-                type="button"
-                className="btn ghost"
-                onClick={() => scrollToSection('contact')}
-              >
-                Contact me
-              </button>
-              <button
-                type="button"
-                className={`btn music-btn ${isMusicPlaying ? 'music-btn-active' : ''}`}
-                onClick={async () => {
-                  const audio = audioRef.current
-                  if (!audio) return
-                  setMusicError(false)
-                  if (isMusicPlaying) {
-                    audio.pause()
-                    setIsMusicPlaying(false)
-                  } else {
-                    try {
-                      await audio.play()
-                      setIsMusicPlaying(true)
-                    } catch {
-                      setMusicError(true)
-                    }
-                  }
-                }}
-              >
-                🎵 {isMusicPlaying ? 'Pause music · संगीत रोकें' : 'Play yogic music · संगीत चलाएँ'}
-              </button>
-            </div>
-            <audio
-              ref={audioRef}
-              src="/media/yogic-music.mp3"
-              loop
-            />
-            <p className="music-note">
-              नर्म, ध्यानमय संगीत · Soft meditative background (you can turn it on / off)
-            </p>
-            {musicError && (
-              <p className="music-note music-error">
-                संगीत फ़ाइल नहीं मिली। कृपया `public/media/yogic-music.mp3` नाम से एक ऑडियो फ़ाइल रखें।
-              </p>
-            )}
-
-            <div className="hero-trust">
-              <div>
-                <span className="trust-label">Experience</span>
-                <span className="trust-value">3+ years teaching</span>
-              </div>
-              <div>
-                <span className="trust-label">Focus</span>
-                <span className="trust-value">Gentle · Vinyasa · Restorative</span>
-              </div>
-              <div>
-                <span className="trust-label">Format</span>
-                <span className="trust-value">Online classes only</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section shloka-strip">
-          <div className="shloka-inner reveal">
-            <div>
-              <p className="shloka-sanskrit">शरीरमाद्यं खलु धर्मसाधनम्</p>
-              <p className="shloka-meaning">
-                यदि हमारा शरीर स्वस्थ है, तभी हम अपने कर्तव्यों का पालन कर सकते हैं। इसलिए हमें अपने शरीर की रक्षा हर तरह से करनी चाहिए, क्योंकि शरीर ही धर्म पालन का पहला साधन है।
-              </p>
-            </div>
-            <div>
-              <p className="shloka-sanskrit">स्थिरसुखम् आसनम् </p>
-              <p className="shloka-meaning">A special posture of the body in which it can remain still and comfortably seated for a long time is called Asana.
-              </p>
             </div>
           </div>
         </section>
@@ -385,34 +320,14 @@ function App() {
             </div>
 
             <div className="about-copy reveal">
-              <p className="eyebrow">Meet your instructor</p>
-              <h2>Yoga as a gentle return to yourself · स्वयं तक वापसी की साधना।</h2>
+              <p className="eyebrow" style={{ color: 'var(--color-primary)' }}>Meet your instructor</p>
+              <h2>Yoga as a gentle return to yourself</h2>
               <p>
                 I&apos;m Pooja, known as Yogic Pooja, a yoga instructor and space-holder for
                 anyone seeking a kinder relationship with their body. My classes weave
                 together slow, intuitive movement, grounding breathwork, and spacious rest
                 so you can soften, strengthen, and remember your own rhythm.
               </p>
-              <p>
-                My approach is feminine, nurturing, and deeply professional—rooted in
-                traditional practice, shaped by modern nervous system science, and always
-                adapted to the human in front of me. परंपरागत योग और आधुनिक समझ का
-                सरल, सहज मेल।
-              </p>
-
-              <div className="about-grid">
-                <div>
-                  <span className="trust-label">Specialities</span>
-                  <p>
-                    Gentle, hormone-friendly flows, and deep restorative rest.
-                    नरम, संतुलित अभ्यास जो शरीर को थकाए नहीं, सहारा दे।
-                  </p>
-                </div>
-                <div>
-                  <span className="trust-label">For you if</span>
-                  <p>You crave softness, sustainable strength, and a calm, clear mind.</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -429,7 +344,7 @@ function App() {
 
           <div className="cards-grid reveal">
             <article className="card offering-card">
-              <div className="card-icon">�</div>
+              <div className="card-icon">🌅</div>
               <h3>Morning Batch</h3>
               <p>
                 Start your day with holistic yoga practices including hatha, ashtanga, kriya,
