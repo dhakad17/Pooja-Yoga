@@ -348,7 +348,7 @@ function App() {
                 a fresh start to their day with holistic wellness practices.
               </p>
               <ul>
-                <li>⏰ 7:00–8:00 AM daily</li>
+                <li>⏰ 6:30–7:30 AM daily</li>
                 <li>📅 Monday to Friday</li>
                 <li>🧘 Group sessions on Google Meet</li>
                 <li>🌿 Holistic yoga, pranayama, meditation</li>
@@ -367,17 +367,17 @@ function App() {
 
             <article className="card program-card">
               <header>
-                <h3>🌙 Evening 1:1 Session</h3>
+                <h3>🌙 Evening Session</h3>
                 <p className="program-tag program-tag-soft">Private Personalized Sessions</p>
               </header>
               <p>
-                One-on-one personalized attention for your specific needs. A healing journey
-                designed just for you with focused guidance and support.
+                End your day with transformative yoga practice. Perfect for those seeking to decompress and find balance with holistic
+                wellness practice.
               </p>
               <ul>
-                <li>⏰ 6:00–7:00 PM (flexible timing)</li>
-                <li>👤 Private 1:1 sessions</li>
-                <li>💚 All lifestyle disorders addressed</li>
+                <li>⏰ 5:00–6:00 PM </li>
+                <li>🧘 Group sessions on Google Meet</li>
+                <li>💚 Release stress, pain & flexibilty</li>
                 <li>🎯 Customized healing path</li>
                 <li>🌸 Personalized lifestyle guidance</li>
               </ul>
@@ -388,7 +388,7 @@ function App() {
                 className="btn primary full"
                 onClick={() => scrollToSection('contact')}
               >
-                Register for 1:1 Session
+                Register for Evening Session
               </button>
             </article>
           </div>
@@ -536,7 +536,7 @@ function App() {
                       Choose an option
                     </option>
                     <option value="Morning Batch - ₹999/month (Limited Offer)">Morning Batch - ₹999/month (Limited Offer)</option>
-                    <option value="Evening 1:1 Session - ₹4000/month (Limited Offer)">Evening 1:1 Session - ₹4000/month (Limited Offer)</option>
+                    <option value="Evening Session - ₹999/month (Limited Offer)">Evening Session - ₹999/month (Limited Offer)</option>
                     <option value="Both Morning & Evening">Both Morning & Evening</option>
                     <option value="Something else">Something else</option>
                   </select>
