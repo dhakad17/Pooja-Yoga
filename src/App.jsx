@@ -381,8 +381,8 @@ function App() {
                 <li>🎯 Customized healing path</li>
                 <li>🌸 Personalized lifestyle guidance</li>
               </ul>
-              <p className="program-price" style={{ textDecoration: 'line-through', opacity: 0.6, marginBottom: '0.3rem' }}>₹5,000/month</p>
-              <p className="program-price" style={{ color: 'var(--color-terracotta)', fontSize: '1.3rem', marginBottom: '0.8rem' }}>₹4,000/month <span style={{ fontSize: '0.85rem', color: 'var(--color-ink-soft)' }}>Limited Time</span></p>
+              <p className="program-price" style={{ textDecoration: 'line-through', opacity: 0.6, marginBottom: '0.3rem' }}>₹1,500/month</p>
+              <p className="program-price" style={{ color: 'var(--color-terracotta)', fontSize: '1.3rem', marginBottom: '0.8rem' }}>₹999/month <span style={{ fontSize: '0.85rem', color: 'var(--color-ink-soft)' }}>Limited Time</span></p>
               <button
                 type="button"
                 className="btn primary full"
