@@ -319,7 +319,7 @@ function App() {
               <p className="eyebrow" style={{ color: 'var(--color-primary)' }}>Meet your instructor</p>
               <h2>Yoga as a gentle return to yourself</h2>
               <p>
-                I&apos;m I’m Pooja, known as Yogic Pooja—a yoga instructor and space-holder for anyone seeking
+                I’m Pooja, known as Yogic Pooja—a yoga instructor and space-holder for anyone seeking
                 a kinder and loving way to reconnect with their body. My classes are designed to help you release
                 stress, pain, and emotional burden, so you can soften, strengthen, and reconnect with your natural
                 rhythm. Through this journey, you’ll rediscover balance, inner peace, and your own source of happiness.
