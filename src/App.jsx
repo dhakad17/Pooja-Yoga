@@ -319,10 +319,10 @@ function App() {
               <p className="eyebrow" style={{ color: 'var(--color-primary)' }}>Meet your instructor</p>
               <h2>Yoga as a gentle return to yourself</h2>
               <p>
-                I&apos;m Pooja, known as Yogic Pooja, a yoga instructor and space-holder for
-                anyone seeking a kinder relationship with their body. My classes weave
-                together slow, intuitive movement, grounding breathwork, and spacious rest
-                so you can soften, strengthen, and remember your own rhythm.
+                I&apos;m I’m Pooja, known as Yogic Pooja—a yoga instructor and space-holder for anyone seeking
+                a kinder and loving way to reconnect with their body. My classes are designed to help you release
+                stress, pain, and emotional burden, so you can soften, strengthen, and reconnect with your natural
+                rhythm. Through this journey, you’ll rediscover balance, inner peace, and your own source of happiness.
               </p>
             </div>
           </div>
@@ -368,17 +368,16 @@ function App() {
             <article className="card program-card">
               <header>
                 <h3>🌙 Evening Session</h3>
-                <p className="program-tag program-tag-soft">Private Personalized Sessions</p>
+                <p className="program-tag program-tag-soft">Mon–Friday · 21 classes/month</p>
               </header>
               <p>
-                End your day with transformative yoga practice. Perfect for those seeking to decompress and find balance with holistic
-                wellness practice.
+                End your day with a calming and transformative yoga practice. Perfect for those who want to release stress, relax the body, and restore balance after a long day.
               </p>
               <ul>
                 <li>⏰ 5:00–6:00 PM </li>
                 <li>🧘 Group sessions on Google Meet</li>
-                <li>💚 Release stress, pain & flexibilty</li>
-                <li>🎯 Customized healing path</li>
+                <li>💚 Release stress, pain & improve flexibilty</li>
+                <li>🎯 Holistic Yoga, Pranayam and Meditation</li>
                 <li>🌸 Personalized lifestyle guidance</li>
               </ul>
               <p className="program-price" style={{ textDecoration: 'line-through', opacity: 0.6, marginBottom: '0.3rem' }}>₹1,500/month</p>
