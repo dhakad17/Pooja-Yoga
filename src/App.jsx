@@ -348,7 +348,7 @@ function App() {
                 a fresh start to their day with holistic wellness practices.
               </p>
               <ul>
-                <li>⏰ 6:30–7:30 AM daily</li>
+                <li>⏰ 5:30–6:30 AM daily</li>
                 <li>📅 Monday to Friday</li>
                 <li>🧘 Group sessions on Google Meet</li>
                 <li>🌿 Holistic yoga, pranayama, meditation</li>
